@@ -1,25 +1,20 @@
 #include<iostream>
 using namespace std;
-void printSubsequence(int arr[],int n, int idx, vector<int> v, int length){
+void printSubsequence(int arr[],int n, int idx, vector<int> v){
     if(idx==n){
-        if(v.size()==length){
-            for(int i=0; i<v.size();i++){
-                cout<<v[i];
-            }
-            cout<<endl;
+        for(int i=0; i<v.size(); i++){
+            cout<<v[i]<<" ";
         }
-        
+        cout<<endl;
         return;
     }
-    printSubsequence(arr,n,idx+1,v,length);
+    printSubsequence(arr,n,idx+1,v);
     v.push_back(arr[idx]);
-    printSubsequence(arr,n,idx+1,v,length);
+    printSubsequence(arr,n,idx+1,v);
 }
 int main(){
-    int arr[]={1,2,3,4,5};
+    int arr[]={1,2,3};
     int n=sizeof(arr)/sizeof(arr[0]);
     vector<int> v;
-    int k=3;
-    printSubsequence(arr,n,0,v,k);
-
+    printSubsequence(arr,n,0,v);
 }
